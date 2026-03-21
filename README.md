@@ -14,9 +14,6 @@
   - [目次](#目次)
   - [プロジェクト概要](#プロジェクト概要)
   - [リポジトリ構成](#リポジトリ構成)
-  - [使い方](#使い方)
-    - [動作確認環境](#動作確認環境)
-    - [コンパイル手順](#コンパイル手順)
   - [ライセンス](#ライセンス)
     - [試験問題（生成されるPDF）](#試験問題生成されるpdf)
     - [TeXソースコード（`.tex` ファイル等）](#texソースコードtex-ファイル等)
@@ -54,30 +51,6 @@ ACT-TeX/
 ```
 
 各ディレクトリ内の `.tex` ファイルが試験問題のソースです。
-
----
-
-## 使い方
-
-### 動作確認環境
-
-- [TeX Live](https://www.tug.org/texlive/) 2023 以降（または W32TeX / MiKTeX）
-- エンジン：`lualatex`（推奨）または `xelatex`
-
-### コンパイル手順
-
-```bash
-# 例：2026年度本試験をコンパイルする場合
-cd main_2026
-lualatex main.tex
-```
-
-依存パッケージはすべて TeX Live の標準インストールに含まれる範囲を想定しています。
-不足パッケージがある場合は `tlmgr` でインストールしてください。
-
-```bash
-tlmgr install <パッケージ名>
-```
 
 ---
 
@@ -126,7 +99,7 @@ tlmgr install <パッケージ名>
 
 ## 連絡先
 
-ご意見・お問い合わせは，GitHubの **Issues** またはウェブサイトのお問い合わせフォームからどうぞ。
+ご意見・お問い合わせは，tzug(@tzug_c)のDMからお願いします。
 
 - 本GitHub: [Akino1729/ACT-TeX](https://github.com/Akino1729/ACT-TeX)
 - ウェブサイト: [https://akino1729.github.io/ACT/public/index.html](https://akino1729.github.io/ACT/public/index.html)

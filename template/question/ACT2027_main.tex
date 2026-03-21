@@ -1,0 +1,120 @@
+\documentclass[uplatex,a4j,12pt,fleqn,dvipdfmx]{ujarticle}
+
+% 2. 基本グラフィック・色・レイアウト
+\usepackage{graphicx,color}
+\usepackage[margin=20mm]{geometry}
+\usepackage{multicol,varwidth,float,caption}
+
+% 3. emathコアパッケージ
+\usepackage[deepenum,notMy]{emath}
+
+% emath拡張パッケージ群
+\usepackage{hako}        % 穴埋め（箱）
+\usepackage{EMfbox}      % 囲み枠
+\usepackage{abcgreek}    % ギリシャ文字
+\usepackage{emathEy}     % 記号・特殊文字
+\usepackage{emathG}      % 幾何（図形）
+\usepackage{emathT}      % 表作成
+\usepackage{emathPs}     % PostScript連携
+\usepackage{emathR}      % 実数計算
+\usepackage{emathAe}     % 解答作成
+\usepackage{emathThm}    % 定理環境
+\usepackage{EMpict2e}    % 描画拡張
+\usepackage[deluxe]{emathOtf} % OTFフォント（太字などの対応）
+
+% 5. 各種定義と書式設定
+% 長丸囲み文字の定義
+\def\nagamaru#1{\mbox{\pIIebNagamaru{#1}}}
+
+% 定理環境（「仮定」など）の共通テスト風デザイン
+\theorembodyfont{\normalfont}
+\theoremstyle{boxed}
+\newtheorem<frame=rectbox,frameoption={oval=8pt,preitem=~,postitem=~}>{katei}{仮定}
+
+% キャプションの日本語化（図1: → 図 1）
+\captionsetup{figurename=図,labelsep=quad}
+
+% カウンターのリセット設定（大問ごとに数式や図の番号をリセット）
+\resetcounter{equation}[enumi]
+\resetcounter{figure}[enumi]
+\resetcounter{table}[enumi]
+\EMfigtrue
+\apnlist{\setlength{\listparindent}{1zw}}
+
+% 大問ラベルの書式定義（専用の箇条書き環境として定義）
+\newenvironment{QuestionEnum}{%
+    \begin{enumerate}<apnlist={\leftmargin1zw\itemindent4zw}>'{\bfseries\Large 第\arabic{enumi}問}'%
+}{%
+    \end{enumerate}%
+}
+\begin{document}
+\abovedisplayskip=7.0pt plus 2.0pt minus 5.0pt
+\belowdisplayskip=7.0pt plus 2.0pt minus 5.0pt
+
+\openKaiFile
+
+% ========== 冊子全体表紙 ==========
+\begin{center}
+    {\bfseries\Huge Arcaea共通テスト} \bigskip\par
+    \Large （全　問　必　答） \bigskip\par
+    \centerline{2027/01/16}
+\end{center}
+\newpage
+
+\section*{問題}
+
+% ========== 科目：Arcaea ==========
+\subsection*{Arcaea}
+\ReadTeXFile{./arcaea/2027100}
+\newpage
+
+\begin{QuestionEnum} % ← ここを変更
+    \item \kaitou\ReadTeXFile{./arcaea/2027101}
+    \newpage
+    \item \kaitou\ReadTeXFile{./arcaea/2027102}
+    \newpage
+    \item \kaitou\ReadTeXFile{./arcaea/2027103}
+    \newpage
+\end{QuestionEnum} % ← ここを変更
+
+% ========== 科目：文科 ==========
+\subsection*{文科}
+\ReadTeXFile{./arts/2027200}
+\newpage
+
+\begin{QuestionEnum} % ← ここを変更
+    \item \kaitou\ReadTeXFile{./arts/2027201}
+    \newpage
+    \item \kaitou\ReadTeXFile{./arts/2027202}
+    \newpage
+    \item \kaitou\ReadTeXFile{./arts/2027203}
+    \newpage
+\end{QuestionEnum} % ← ここを変更
+
+% ========== 科目：理科 ==========
+\subsection*{理科}
+\ReadTeXFile{./science/2027300} 
+\newpage
+
+\begin{QuestionEnum} % ← ここを変更
+    \item \kaitou\ReadTeXFile{./science/2027301}
+    \newpage
+    \item \kaitou\ReadTeXFile{./science/2027302}
+    \newpage
+    \item \kaitou\ReadTeXFile{./science/2027303}
+    \newpage
+\end{QuestionEnum} % ← ここを変更
+
+\closeKaiFile
+
+% ========== 解答・解説セクション ==========
+% \newpage
+% \section*{正答・配点}
+% \enlargethispage{2\baselineskip}
+% \includegraphics*[scale=.45]{fig/KT1Aans.pdf}
+
+\newpage
+% \section*{略解}
+% \inputKaiFile
+
+\end{document}

@@ -1,0 +1,57 @@
+\expandafter\begin\expandafter\Kaienumerate\Kaienumopt
+\ifthenelse{\equal{\Kaienumerate}{edaenumerate}}{\def\Aeitem{\edaitem}}{} \ifthenelse{\equal{\Kaienumerate}{betaenumerate}}{\def\Aeitem{\edaitem}}{} \ifthenelse{\equal{\Kaienumerate}{yokoenumerate}}{\def\Aeitem{\item}}{} 
+\def\jobname{ACT2027_main}
+\def\prelabel{ACT2027_main-}
+\autoHakolabel{}
+\xdef\perlflnum{0}
+\Aesetcurrentenum{0}\Aeitem
+\protect \ReadTeXFile 
+\def\jobname{ACT2027_main}
+\def\prelabel{ACT2027_main-}
+\autoHakolabel{}
+\xdef\perlflnum{0}
+\Aesetcurrentenum{1}\Aeitem
+\protect \ReadTeXFile 
+\def\jobname{ACT2027_main}
+\def\prelabel{ACT2027_main-}
+\autoHakolabel{}
+\xdef\perlflnum{0}
+\Aesetcurrentenum{2}\Aeitem
+\protect \ReadTeXFile 
+\def\jobname{ACT2027_main}
+\def\prelabel{ACT2027_main-}
+\autoHakolabel{}
+\xdef\perlflnum{0}
+\Aesetcurrentenum{0}\Aeitem
+\protect \ReadTeXFile 
+\def\jobname{ACT2027_main}
+\def\prelabel{ACT2027_main-}
+\autoHakolabel{}
+\xdef\perlflnum{0}
+\Aesetcurrentenum{1}\Aeitem
+\protect \ReadTeXFile 
+\def\jobname{ACT2027_main}
+\def\prelabel{ACT2027_main-}
+\autoHakolabel{}
+\xdef\perlflnum{0}
+\Aesetcurrentenum{2}\Aeitem
+\protect \ReadTeXFile 
+\def\jobname{ACT2027_main}
+\def\prelabel{ACT2027_main-}
+\autoHakolabel{}
+\xdef\perlflnum{0}
+\Aesetcurrentenum{0}\Aeitem
+\protect \ReadTeXFile 
+\def\jobname{ACT2027_main}
+\def\prelabel{ACT2027_main-}
+\autoHakolabel{}
+\xdef\perlflnum{0}
+\Aesetcurrentenum{1}\Aeitem
+\protect \ReadTeXFile 
+\def\jobname{ACT2027_main}
+\def\prelabel{ACT2027_main-}
+\autoHakolabel{}
+\xdef\perlflnum{0}
+\Aesetcurrentenum{2}\Aeitem
+\protect \ReadTeXFile 
+\end\Kaienumerate\protect \def \Kaienumerate{enumerate}\def\Kaienumopt{}
