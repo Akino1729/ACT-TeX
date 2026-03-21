@@ -1,0 +1,101 @@
+\documentclass[a4j,12pt,fleqn,dvipdfmx]{jarticle}
+\usepackage{graphicx,color}
+\usepackage[deepenum,notMy]{emath}
+\usepackage{hako}
+\usepackage{EMfbox}
+\usepackage{abcgreek}
+\usepackage{emathEy}
+\usepackage{emathG}
+\usepackage{emathT}
+\usepackage{emathPs}
+\usepackage{emathR}
+\usepackage{multicol}
+\usepackage{emathAe}
+\usepackage{emathThm}
+\usepackage{varwidth}
+\usepackage{EMpict2e}
+\def\nagamaru#1{\mbox{\pIIebNagamaru{#1}}}%
+\usepackage{float}
+\usepackage{caption}
+%\usepackage[showframe,margin=20mm]{geometry}
+\usepackage[margin=20mm]{geometry}
+\usepackage[deluxe]{emathOtf}
+\theorembodyfont{\normalfont}
+\theoremstyle{boxed}
+\newtheorem<frame=rectbox,frameoption={oval=8pt,preitem=~,postitem=~}>%
+  {katei}{仮定}
+
+\captionsetup{figurename=図,labelsep=quad}
+
+\resetcounter{equation}[enumi]
+\resetcounter{figure}[enumi]
+\resetcounter{table}[enumi]
+\EMfigtrue
+\apnlist{\setlength{\listparindent}{1zw}}
+
+\begin{document}
+\abovedisplayskip=7.0pt plus 2.0pt minus 5.0pt
+\belowdisplayskip=7.0pt plus 2.0pt minus 5.0pt
+\openKaiFile
+%\vskip5\baselineskip
+\begin{center}
+  {\bfseries\Huge 数学I，数学A}
+\bigskip
+
+\Large
+（全　問　必　答）
+
+\bigskip
+
+\centerline{2025/01/19}
+\end{center}
+
+\tableofcontents
+
+\newpage
+
+\section{問題}
+\begin{enumerate}<apnlist={\leftmargin1zw\itemindent4zw}>'\bfseries\Large 第\arabic{\enum}問'
+\item \kaitou{}\mbox{ }\par
+\begin{enumerate}<apnlist=>[\bfseries{[}~1~{]}]
+  \item \ReadTeXFile{}
+
+\newpage
+
+  \item \ReadTeXFile{0000202502}
+\end{enumerate}
+\newpage
+
+\item \kaitou{}\mbox{ }\par
+\begin{enumerate}<apnlist=>[\bfseries{[}~1~{]}]
+  \item \ReadTeXFile{0000202503}
+
+\newpage
+
+  \item \ReadTeXFile{0000202504}
+\end{enumerate}
+
+\newpage
+
+\item \mbox{}\par
+    \ReadTeXFile{0000202505}
+
+\newpage
+
+\item \mbox{}\par
+    \ReadTeXFile{0000202506}
+\end{enumerate}
+\closeKaiFile
+\newpage
+
+\section{正答・配点}
+\enlargethispage{2\baselineskip}
+
+\includegraphics*[scale=.45]{fig/KT1Aans.pdf}
+
+\newpage
+
+\section{略解}
+\inputKaiFile
+
+\end{document}
