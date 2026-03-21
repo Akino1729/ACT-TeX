@@ -1,0 +1,333 @@
+\RequirePackage{plautopatch}
+\documentclass[uplatex,dvipdfmx,paper=a4paper,fontsize=11pt,jafontscale=0.9247,lang=ja]{jlreq}
+
+%=============================================
+% パッケージ
+%=============================================
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{ascmac}
+\usepackage{fancybox}
+\usepackage{amsmath,amssymb}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{hhline}
+\usepackage{otf}       % \ajMaru 用（uplatex必須）
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{calc}
+
+\setcounter{secnumdepth}{0} % セクション番号を非表示にし、見出しを整理
+
+\begin{document}
+%===============================================
+% 表紙
+%===============================================
+\fancypagestyle{coverpage}{
+  \fancyhf{}
+  \cfoot{\small ―\ \thepage\ ―}
+}
+
+\fancypagestyle{exampage}{
+  \fancyhf{}
+  \lhead{\small 2026年度試験}
+  \chead{\small 【第1回 Arcaea共通テスト】}
+  \rhead{解答}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \cfoot{\small ―\ \thepage\ ―}
+  \rfoot{\small （次頁へ続く）}
+  \renewcommand{\footrulewidth}{0.4pt}
+}
+
+\thispagestyle{coverpage}
+\begin{center}
+
+\vspace*{2cm}
+
+\begin{center}
+  \Huge{解答}
+\end{center}
+
+\vspace{2cm}
+\fbox{\parbox{0.85\textwidth}{
+  \centering
+  \vspace{0.8em}
+  {\Large 2026年度}\\[1em]
+  {\Huge\textbf{第1回　Arcaea共通テスト}}\\[1em]
+  \vspace{0.8em}
+}}
+
+\vspace{3cm}
+
+% 試験情報テーブル
+\renewcommand{\arraystretch}{1.8}
+\begin{tabular}{|>{\centering\arraybackslash}p{3.5cm}|>{\centering\arraybackslash}p{7cm}|}
+\hline
+\textbf{試験日} & 2026年　1月 10日（土） \\
+\hline
+\textbf{解答時間(目安)} & 60分 \\
+\hline
+\textbf{出題領域} & Arcaea・文科・理科 \\
+\hline
+\end{tabular}
+
+\vspace{4cm}
+
+{\large 主催：tzug（$\mathbb{X}$ : @tzug\_c）}
+
+\end{center}
+\newpage
+
+\pagestyle{exampage}
+\vspace{2em}
+\begin{center}
+  \LARGE{\textbf{出題意図}}
+\end{center}
+
+\section*{Arcaea}
+\subsection*{第1問}
+本問は、Arcaeaのシステム、楽曲、および世界観に関する総合的な理解を問う問題である。
+単なる表面的な知識のみならず、譜面制作者の名義に隠された演出や、特定のパートナーが持つ特殊なスキルの仕様など、細部まで観察・分析する力を測ることを目的としている。
+
+\section*{文科}
+\subsection*{第1問}
+本問は、複数の資料を比較し、共通する特徴から適切な漢字を推定する力を問うものである。
+また、Arcaeaのストーリーにおける語の偏りを題材として、情報整理能力を測ることを目的としている。
+本問を解くに当たって、出現頻度の高い語に着目し、各表の対応関係とランキングしている漢字の情報を整理できるかがポイントとなる。
+特に、 \doublebox{3} と \doublebox{2} の出現頻度を合わせると \doublebox{1} の出現頻度になることに気づけるかが重要である。
+
+\section*{理科}
+\subsection*{第1問}
+音響工学および音楽制作における物理現象を数学的に解釈する問題である。
+BPMの変化と音高の変化が指数関数的な関係にあることを理解していることを求めている。
+中学生の受験者も解けるよう配慮し、算数的な解法ではあるがその解法に至るまでは論理的な思考を要する問題としている。
+
+\subsection*{第2問}
+離散数学における漸化式と組合せの問題である。
+ストーリー中にある「階段を上る」という具体的な状況からフィボナッチ数列の構造を見出し、さらに「特定の動作を連続させない」という制約条件を加えた際の規則性の変化を考察させることで、実験・検証に基づく論理的構成力を測ることを目的としている。
+
+\newpage
+\vspace{2em}
+\begin{center}
+  \LARGE{\textbf{解答例}}
+\end{center}
+
+\section*{Arcaea}
+\subsection*{第1問}
+\begin{itemize}[labelsep=1em]
+  \item[\doublebox{a}] \textbf{\textcircled{\scriptsize 2}}：英語設定では「Hikari」「Tairitsu」「Kou」と表記される。
+  \item[\doublebox{b}] \textbf{\textcircled{\scriptsize 0}}：ak+qの「Quon」とFeryquitousの「Quon」が存在する。
+  \item[\doublebox{c}] \textbf{\textcircled{\scriptsize 2}}：現行の難易度設定において、選択肢中ではTempestissimo[FTR]のみが難易度10+である。
+  \item[\doublebox{d}] \textbf{\textcircled{\scriptsize 2}}：「Aether Crest: Astral」は収録されているが、「Aether Crest: Celestial」という名前ではArcaeaには収録されていない（Chunithmではこのタイトルである）。
+  \item[\doublebox{e}] \textbf{\textcircled{\scriptsize 3}}：Grievous Ladyの各難易度における譜面製作者は、迷路第一層、第二層、深層である。
+  \item[\doublebox{f}] \textbf{\textcircled{\scriptsize 0}}：基本編の楽曲名は「Tutorial」、応用編は「Advanced Tutorial」、作曲者はak+qである。
+  \item[\doublebox{g}] \textbf{\textcircled{\scriptsize 1}}：ルナ
+  \item[\doublebox{h}] \textbf{\textcircled{\scriptsize 3}}：ルナのスキルは「想起率の非表示」である。
+  \item[\doublebox{i}] \textbf{\textcircled{\scriptsize 1}}：Binary Enfold内の「Singularity」で特定の条件を満たすと出現するマップで入手できる。
+  \item[\doublebox{j}] \textbf{\textcircled{\scriptsize 3}}：盛夏 叶永
+  \item[\doublebox{k}] \textbf{\textcircled{\scriptsize 0}}：盛夏 叶永のスキルは、6:00から19:59、20:00から5:59で変わる。
+  \item[\doublebox{l}] \textbf{\textcircled{\scriptsize 3}}、\doublebox{m} \textbf{\textcircled{\scriptsize 1}}：HIVEMINDのPSTはロングとアークノーツのみ、FTRはロング・アーク・スカイノーツのみの特殊構成である。
+\end{itemize}
+
+\newpage
+\section*{文科}
+\subsection*{第1問}
+\begin{enumerate}[label=(\arabic*)]
+  \item \textbf{【解答】}
+    \begin{itemize}[label={}, leftmargin=1em]
+        \item \doublebox{1}：\textcircled{\scriptsize 1} 女、\doublebox{2}：\textcircled{\scriptsize 10} 少、\doublebox{3}：\textcircled{\scriptsize 13} 彼、
+        \item \doublebox{4}：\textcircled{\scriptsize 4} 光、\doublebox{5}：\textcircled{\scriptsize 16} 片、\doublebox{6}：\textcircled{\scriptsize 20} 見、
+        \item \doublebox{7}：\textcircled{\scriptsize 19} 一、\doublebox{8}：\textcircled{\scriptsize 18} 硝、\doublebox{9}：\textcircled{\scriptsize 24} 界、
+        \item \doublebox{10}：\textcircled{\scriptsize 23} 世、\doublebox{11}：\textcircled{\scriptsize 7} 憶、\doublebox{12}：\textcircled{\scriptsize 5} 記
+    \end{itemize}
+
+    \textbf{【解説】}
+    Act $\mathrm{I}$のメインキャラクターである光と対立を指す「女（少女）」という漢字が最も多く登場する。
+    メモ1にある「Arcaea」という読みが振られる語は、ゲーム内の演出（ルビ）に注目すれば、「記憶（憶・記）」「世界（世・界）」「欠片（片）」「硝子片（硝）」であることが推察される。
+    特に「少」と「硝」はどちらも音読みが「ショウ」であり、条件に合致する。
+    また、~\doublebox{2}~、~\doublebox{3}~の出現頻度を合わせると、およそ~\doublebox{1}~の出現頻度になる。
+    このことから、「女」の出現回数は二つの熟語（「少女」と「彼女」）で共通して使われた結果だと考えられる。
+    ~\doublebox{2}~が「少」であることを踏まえると、次の~\doublebox{3}~は「彼女」の「彼」であると推測できる。
+
+  \item \textbf{【解答】}
+    \begin{itemize}[label={}, leftmargin=1em]
+        \item \doublebox{13}：\textcircled{\scriptsize 2} Vicious Labyrinth、\doublebox{14}：\textcircled{\scriptsize 1} Luminous Sky、\doublebox{15}：\textcircled{\scriptsize 0} Eternal Core、
+        \item \doublebox{16}：\textcircled{\scriptsize 5} Final Verdict、\doublebox{17}：\textcircled{\scriptsize 3} Adverse Prelude、\doublebox{18}：\textcircled{\scriptsize 4} Black Fate
+    \end{itemize}
+
+    \textbf{【解説】}
+    表5 ~\doublebox{16}~では各漢字の出現回数が急増しており、物語のクライマックスである「Final Verdict」であることを示唆している。
+    また、メモ2の「章番号V」から~\doublebox{17}~がAdverse Preludeであることが確定し、そこから前後の文脈、特異な漢字を整理することで全章を特定できる。
+
+  \item \textbf{【解答】} \doublebox{19}：\textcircled{\scriptsize 1} 11
+    
+    \textbf{【解説】}
+    表2から表6までの~\doublebox{2}~の出現回数を合計すると、326回となる。
+    表7に着目すると、(1)と同様に考えれば、~\doublebox{2}~の出現回数はおよそ33回であることが推量される。
+    従って表2から表7までの~\doublebox{2}~の出現回数は、$326 + 33 = 359$回となる。
+    Act I中では374回~\doublebox{2}~が登場するため、全体から、第0章を除いた全体を引くと第0章中に出現する~\doublebox{2}~の回数が得られる。
+    $374 - 359 = 15$回となる。
+    また、$\doublebox{2} + \doublebox{3} \simeq \doublebox{1}$ から考えれば、$\doublebox{2} + \doublebox{3} \simeq 11$となり、~\doublebox{2}~の範囲が大体0から11であることが分かる。
+    よって、先ほどの結果と合わせれば、~\doublebox{2}~の出現回数は~\textcircled{\scriptsize 1}~11回である。
+\end{enumerate}
+完成した表は以下の通りである。
+ストーリー順に並び替えているためキャプションは上と一致しない。
+
+\begin{table}[h]
+  \centering
+  \caption{Act \protect$\mathrm{I}$ 全体での漢字出現頻度}
+\begin{tabular}{|c c|} \hline
+  漢字 & 回数\\ \hline
+  女 & 635 \\
+  少 & 374 \\
+  彼 & 249 \\
+  光 & 236 \\
+  片 & 226 \\  
+  見 & 219 \\
+  一 & 213 \\
+  硝 & 211 \\
+  界 & 206 \\
+  世 & 192 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \begin{minipage}{0.32\linewidth}
+    \centering  
+    \caption{Eternal Core}
+    \begin{tabular}{|c c|} \hline
+    女 & 35 \\
+    片 & 33 \\
+    少，硝 & 30 \\
+    憶，記 & 23 \\
+    世，界 & 15\\ \hline
+    \end{tabular}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.32\linewidth}
+    \centering
+    \caption{Luminous Sky}
+    \begin{tabular}{|c c|} \hline
+    女 & 73 \\
+    彼 & 44 \\
+    少 & 29 \\
+    自 & 27 \\
+    片 & 24 \\ \hline
+    \end{tabular}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.32\linewidth}
+      \centering
+      \caption{Vicious Labyrinth}
+      \begin{tabular}{|c c|} \hline
+      女 & 79 \\
+      少 & 60 \\
+      憶 & 31 \\
+      記 & 30 \\
+      界 & 28 \\ \hline
+      \end{tabular}
+  \end{minipage}
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \begin{minipage}{0.32\linewidth}
+      \centering
+      \caption{Adverse Prelude}
+      \begin{tabular}{|c c|} \hline
+      女 & 102 \\
+      少 & 55 \\
+      彼 & 51 \\
+      自 & 38 \\
+      見 & 34 \\ \hline
+      \end{tabular}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.32\linewidth}
+      \centering
+      \caption{Black Fate}
+      \begin{tabular}{|c c|} \hline
+      女 & 100 \\
+      硝 & 77 \\
+      光 & 73 \\
+      片 & 72 \\
+      彼 & 67 \\ \hline
+  \end{tabular}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.32\linewidth}
+    \centering
+    \caption{Final Verdict}
+    \begin{tabular}{|c c|} \hline
+    女 & 235 \\
+    少 & 152 \\
+    界 & 112 \\
+    世 & 102 \\
+    一 & 100 \\ \hline
+    \end{tabular}
+  \end{minipage}
+\end{table}
+
+\newpage
+\section*{理科}
+\subsection*{第1問}
+\begin{enumerate}[label=(\arabic*)]
+  \item \textbf{【解答】} \doublebox{ア}：\textcircled{\scriptsize 2} 低くなり、\doublebox{イ}：\textcircled{\scriptsize 2} 遅くなる
+
+  \item \textbf{【解答】} \doublebox{ウ}：\textcircled{\scriptsize 1} $0.977160$
+    
+    \textbf{【解説】}
+    問題文に「0.4半音下げている」とあるため、$n = -0.4$となる。
+    表から$n = -0.4$のときの$2^{\frac{n}{12}}$の値を読み取ればよい。
+
+  \item \textbf{【解答】} \fbox{エオカ}.\fbox{キク}：$180.00$
+    
+    \textbf{【解説】}
+    $X \times 0.977160 = 175.89$ を計算すると、$X = 175.89 \div 0.977160 \simeq 180.00$ となる。
+
+  \item \textbf{【解答】} (i) \doublebox{ケ}：\textcircled{\scriptsize 0} \quad (ii) \doublebox{コ}：\textcircled{\scriptsize 2} 12、\fbox{サシス}：$430$
+
+    \textbf{【解説】}
+    (i) 指数関数 $f = f_0 \times 2^{\frac{n}{12}}$ のグラフは、右肩上がりに急激に増えていく曲線になる。\\
+    (ii) 関係式 $R = 2^{\frac{n}{12}}$ を対数を用いて書き直すと、$n = 12 \times \log_2 R$ となる。
+    周波数の計算は、$440 \times 0.977160 = 429.9504$ となり、四捨五入して$430$ Hzとなる。
+\end{enumerate}
+
+\subsection*{第2問}
+\begin{enumerate}[label=(\arabic*)]
+  \item \textbf{【解答】} \fbox{セ}：$5$
+    
+    \textbf{【解説】}
+    4段まで上る方法は、(1,1,1,1), (1,1,2), (1,2,1), (2,1,1), (2,2) の5通り。
+
+  \item \textbf{【解答】}
+    \begin{itemize}[label={}, leftmargin=1em]
+        \item (i) \doublebox{ソ}：\textcircled{\scriptsize 0} $a_n = a_{n-1} + a_{n-2}$ \quad (ii) \doublebox{タ}：\textcircled{\scriptsize 1} $q$
+        \item (a) \doublebox{チ}：\textcircled{\scriptsize 0} $\alpha - \beta$、\doublebox{ツ}：\textcircled{\scriptsize 3} $n+1$
+        \item \fbox{ト}：$1$、\fbox{ナ}：$5$、\fbox{テ}：$2$
+    \end{itemize}
+
+    \textbf{【解説】}
+    (i) $n$段目に着く直前は「1段下から1段上る」か「2段下から2段上る」の2パターン。
+    よって手前の2つの状態の和になる。\\
+    (ii) これは有名なフィボナッチ数列の一般項(ビネの公式)の導出過程である。
+    
+    \textbf{余談：} \doublebox{ツ}に関して、$n$乗という回答が非常に多かった。
+    一般的なフィボナッチ数列($F_n=F_{n-1}+F_{n-2}(n\geq2)，F_1=F_2=1$)であればその通りだが、今回の状況では$F_1=1，F_2=2$であるから、それを一つずらした$n+1$が正答である。
+
+  \item \textbf{【解答】} (i) \doublebox{ニ}：\textcircled{\scriptsize 1} $b_n = b_{n-1} + b_{n-3}$ \quad (ii) \fbox{ヌネノ}：$406$ \quad (iii) \fbox{ハ}：$1$
+
+    \textbf{【解説】}
+    (i) 「2段上りを連続させない」というルールでは、$n$段目に2段上りで着く場合、その手前は必ず1段上りでなければならない。
+    つまり、$n$段目に着くには「$n-1$段目から1段上る」か「$n-3$段目から(1段+2段)で上る」のどちらかになる。\\
+    (ii) $b_1=1, b_2=2, b_3=3, b_4=4, b_5=6 \dots$ と順に足していくと、$b_{16} = 406$となる。\\
+    (iii) この数列を2で割った余りは、「1, 0, 1, 0, 0, 1, 1」の7周期で繰り返される。
+    $616 \div 7 = 88$（余り0）なので、周期の最後である「1」が答えとなる。
+\end{enumerate}
+\end{document}

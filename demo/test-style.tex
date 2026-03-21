@@ -1,0 +1,125 @@
+\RequirePackage{plautopatch}
+\documentclass[paper=a4paper,fontsize=11pt,jafontscale=0.9247,lang=ja]{jlreq}
+
+% ==============================================
+% 1. パッケージ読み込み
+% ==============================================
+\usepackage{geometry}       % 余白設定
+\usepackage{fancyhdr}       % ヘッダー・フッター
+\usepackage{amsmath,amssymb}% 数式
+\usepackage{tabularx}       % 表組み
+\usepackage{enumitem}       % リスト環境の拡張
+\usepackage{hhline}         % 表の罫線の高度な制御
+\usepackage{otf}            % 囲み数字など(uplatex推奨)
+\usepackage{xcolor}         % 色（装飾用）
+
+% ==============================================
+% 2. レイアウト設定
+% ==============================================
+\geometry{top=25mm, bottom=25mm, left=20mm, right=20mm}
+\setlength{\headheight}{18pt}
+\setlength{\headsep}{12pt}
+\setlength{\footskip}{20pt}
+
+% ==============================================
+% 3. 解答欄・共通テスト風スタイル定義
+% ==============================================
+
+% --- 解答番号のスタイル（二重枠） ---
+\newcommand{\ansbox}[1]{%
+  \fbox{\fbox{\bfseries\ #1\ }}%
+}
+
+% --- 解答群のスタイル定義 ---
+% \AnswerGroup{記号}{内容}
+\newcommand{\AnswerGroup}[2]{%
+  \par\vspace{1em}
+  \noindent
+  \textbf{\ansbox{#1} の解答群}
+  \par\vspace{0.2em}
+  \noindent
+  % 枠線と中の余白設定
+  \fbox{%
+    \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+      \vspace{0.5em}
+      \centering
+      #2
+      \vspace{0.5em}
+    \end{minipage}%
+  }%
+  \par\vspace{1em}
+}
+
+% --- 選択肢リスト用環境 (2列固定) ---
+% \begin{AnsList} \item ... \end{AnsList}
+\newlist{AnsList}{enumerate}{1}
+\setlist[AnsList]{
+  label=\protect\ajMaru{\arabic*}, % otfパッケージの丸数字を使用
+  leftmargin=3em,
+  labelsep=0.8em,
+  itemsep=0.2em,
+  widest=4
+}
+
+% 2列で配置するためのコマンド
+% \TwoColAns{1番目の内容}{2番目の内容}
+\newcommand{\TwoColAns}[2]{%
+  \begin{minipage}[t]{0.48\linewidth}
+    #1
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.48\linewidth}
+    #2
+  \end{minipage}%
+}
+
+% ==============================================
+% 4. ページスタイル (ヘッダーなど)
+% ==============================================
+\fancypagestyle{exam}{
+  \fancyhf{}
+  \lhead{\small 令和8年度試験}
+  \chead{\small 【第1回 Arcaea共通テスト】}
+  \rhead{\small 理科}
+  \cfoot{\small ―\ \thepage\ ―}
+  \renewcommand{\headrulewidth}{0.4pt}
+}
+\pagestyle{exam}
+
+% ==============================================
+% 5. 本文
+% ==============================================
+\begin{document}
+
+% --- 第2問 ---
+\section*{第2問}
+
+データを効率よく管理する方法の一つとして，ハッシュ表と呼ばれる仕組みが用いられることがある．
+ハッシュ表では，各データに対応するキーの値から，そのデータを格納する位置を決めるために，ハッシュ関数と呼ばれる関数を用いる．
+ここでは，正の整数をキーとするデータを扱うこととし，キー $x$ に対するハッシュ関数 $h(x)$ を
+\[
+  h(x)=x\mod n
+\]
+と定める．
+ここで，$n$ はハッシュ表の大きさを表す正の整数であり，$x\mod n$ は $x$ を $n$ で割った余りを表すものとする．
+異なるキーであっても，同じ値 $h(x)$ をとることがあり，このような場合を衝突という．
+以下の各問いに答えよ．
+
+\begin{enumerate}[label=(\arabic*), leftmargin=2em]
+
+  % --- 問1 ---
+  \item 自然数をキーとするデータを，ハッシュ表を用いて管理したい．
+  キー $x$ のハッシュ関数を $h(x)$ と定めたとき,任意のキー $a$ と $b$ が衝突する条件は\ansbox{ウ}のときである．
+
+  % [ウ] の解答群 (リスト形式)
+  \AnswerGroup{ウ}{%
+    % 2列に分割して配置
+    \begin{tabular}{p{0.48\linewidth} p{0.48\linewidth}}
+       \ajMaru{1} $a+b$ が $n$ の倍数 & \ajMaru{3} $n$ が $a+b$ の倍数 \\
+       \ajMaru{2} $a-b$ が $n$ の倍数 & \ajMaru{4} $n$ が $a-b$ の倍数
+    \end{tabular}
+  }
+
+\end{enumerate}
+
+\end{document}
