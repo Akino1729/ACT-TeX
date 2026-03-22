@@ -1,0 +1,59 @@
+\documentclass[uplatex,a4j,11pt,fleqn,dvipdfmx]{ujarticle}
+
+\input{../preamble.tex}
+
+\begin{document}
+\abovedisplayskip=7.0pt plus 2.0pt minus 5.0pt
+\belowdisplayskip=7.0pt plus 2.0pt minus 5.0pt
+\openKaiFile
+
+% ========== 冊子全体表紙 ==========
+\ReadTeXFile{./ACTXXXX_instruction.tex}
+% % ページ番号隠し
+% \thispagestyle{empty}
+% \clearpage
+% \addtocounter{page}{-1}
+
+% ========== 科目：Arcaea ==========
+\newpage
+\subject{A　r　c　a　e　a}{１}{５０}
+
+\begin{QuestionEnum} % ← ここを変更
+    \item \ReadTeXFile{./question/arcaea/XXXX101.tex}
+    \newpage
+    \item \ReadTeXFile{./question/arcaea/XXXX102.tex}
+\end{QuestionEnum} % ← ここを変更
+
+% ========== 科目：文科 ==========
+\newpage
+\subject{文　科}{イ}{ス}
+
+\begin{QuestionEnum} % ← ここを変更
+    \item \ReadTeXFile{./question/arts/XXXX201.tex}
+    \newpage
+    \item \ReadTeXFile{./question/arts/XXXX202.tex}
+\end{QuestionEnum} % ← ここを変更
+
+% ========== 科目：理科 ==========
+\newpage
+\subject{理科}{ア}{ン}
+
+\begin{QuestionEnum} % ← ここを変更
+    \item \ReadTeXFile{./question/science/XXXX301.tex}
+    \newpage
+    \item \ReadTeXFile{./question/science/XXXX302.tex}
+\end{QuestionEnum} % ← ここを変更
+
+\closeKaiFile
+
+% ========== 解答・解説セクション ==========
+% \newpage
+% \section*{正答・配点}
+% \enlargethispage{2\baselineskip}
+% \includegraphics*[scale=.45]{fig/KT1Aans.pdf}
+
+\newpage
+% \section*{略解}
+% \inputKaiFile
+
+\end{document}
