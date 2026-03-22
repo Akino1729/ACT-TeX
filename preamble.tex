@@ -1,93 +1,127 @@
+%=============================================================================
+% preamble.tex
+% Arcaea共通テスト（ACT）テンプレート共通プリアンブル
+%
+% 使用方法：
+%   \input{../preamble.tex}  を ACTXXXX_main.tex のプリアンブルに記述する
+%
+% 依存パッケージ：
+%   emath（TeX Live 標準外・別途インストール必要）
+%   その他はTeX Live標準同梱
+%=============================================================================
 
-% 2. 基本グラフィック・色・レイアウト
-\usepackage{fancybox}
-\usepackage{graphicx,color}
+
+\usepackage{fancybox}       % \doublebox などの枠線コマンド（emath と別系統）
+\usepackage{graphicx,color} % 画像挿入・色指定（\includegraphics, \textcolor 等）
 \usepackage[margin=20mm]{geometry}
+                            % ページ余白設定（上下左右すべて20mm）
 \usepackage{multicol,multirow,varwidth,float,caption}
+                            % multicol  : 2段組（選択肢の横並びなど）
+                            % multirow  : 表のセル結合（注意事項の配点表等）
+                            % varwidth  : 中身に合わせた幅のminipage
+                            % float     % 図表の配置制御（[H]オプション等）
+                            % caption   : キャプション書式変更（figurename=図 等）
 
-% 3. emathコアパッケージ
 \usepackage[deepenum,notMy]{emath}
+                            % emath 本体（必須）
+                            % deepenum : enumerate を深いレベルまで使用可能にする
+                            % notMy    : emath 独自の一部定義を抑制（他パッケージとの衝突回避）
+\usepackage{hako}           % 解答欄（穴埋め箱）: \fgb{}, \fb{}, \dgb{}, \db{} 等
+\usepackage{EMfbox}         % 枠付きボックス: \rectbox, \EMbox 等
+\usepackage{abcgreek}       % ギリシャ文字アルファベット対応（\alpha 等の表示改善）
+\usepackage{emathEy}        % 選択肢の横並び列挙環境（\yokoenum 等）
+\usepackage{emathG}         % 幾何作図サポート（座標平面の描画等）
+\usepackage{emathT}         % 表作成拡張（増減表など）
+\usepackage{emathPs}        % PostScript 連携描画（\zahyou 等の座標系グラフ）
+\usepackage{emathR}         % 外部ソースファイルの読み込み（\ReadTeXFile の依存先）
+\usepackage{emathAe}        % 解答ファイル自動生成機能
+                            % \openKaiFile / \closeKaiFile で解答ファイルを開閉
+                            % 問題ファイル内の \解答{} で内容を記録
+                            % \ReadTeXFile もこのパッケージが提供する
+\usepackage{emathThm}       % 定理・仮定環境（\theoremstyle{boxed} 等）
+\usepackage{EMpict2e}       % pict2e 拡張（emath の描画機能を pict2e で補完）
+\usepackage[deluxe]{emathOtf}
+                            % OTFフォント対応（太字ゴシック等）
+                            % \textgt{} による明朝/ゴシック切り替えが可能になる
 
-% emath拡張パッケージ群
-\usepackage{hako}        % 穴埋め（箱）
-\usepackage{EMfbox}      % 囲み枠
-\usepackage{abcgreek}    % ギリシャ文字
-\usepackage{emathEy}     % 記号・特殊文字
-\usepackage{emathG}      % 幾何（図形）
-\usepackage{emathT}      % 表作成
-\usepackage{emathPs}     % PostScript連携
-\usepackage{emathR}      % 実数計算
-\usepackage{emathAe}     % 解答作成
-\usepackage{emathThm}    % 定理環境
-\usepackage{EMpict2e}    % 描画拡張
-\usepackage[deluxe]{emathOtf} % OTFフォント（太字などの対応）
-
-
-% 5. 各種定義と書式設定
-% 長丸囲み文字の定義
+% 長丸囲み文字
+% \nagamaru{テキスト} で長丸で囲んだ文字を出力する
 \def\nagamaru#1{\mbox{\pIIebNagamaru{#1}}}
 
-% 定理環境（「仮定」など）の共通テスト風デザイン
+% 定理環境（「仮定」ブロック）の共通テスト風デザイン
+% 角丸の枠付き定理環境「仮定」を定義する
+% 問題文中で条件・前提をまとめるブロックとして使用
 \theorembodyfont{\normalfont}
 \theoremstyle{boxed}
 \newtheorem<frame=rectbox,frameoption={oval=8pt,preitem=~,postitem=~}>{katei}{仮定}
 
-% キャプションの日本語化（図1: → 図 1）
+% キャプションの日本語化
+% 図のキャプション「Figure 1:」を「図 1　」形式に変更
 \captionsetup{figurename=図,labelsep=quad}
 
-% カウンターのリセット設定（大問ごとに数式や図の番号をリセット）
+% カウンターのリセット設定
+% 大問（enumerate第1レベル）が変わるたびに数式番号・図番号・表番号をリセット
 \resetcounter{equation}[enumi]
 \resetcounter{figure}[enumi]
 \resetcounter{table}[enumi]
 \EMfigtrue
 \apnlist{\setlength{\listparindent}{1zw}}
 
-% 大問ラベルの書式定義（専用の箇条書き環境として定義）
+
+
+% 大問番号を「第1問」「第2問」... と太字大文字で表示する enumerate 環境
 \newenvironment{QuestionEnum}{%
     \begin{enumerate}<apnlist={\leftmargin1zw\itemindent4zw}>'{\bfseries\Large 第\arabic{enumi}問}'%
 }{%
     \end{enumerate}%
 }
 
+% 数値・記号穴埋め欄 : \fgb{} / \fb{}
+% 選択式解答欄       : \dgb{} / \db{}
 
-% --- 単線枠 ---
+% 数値・記号穴埋め欄（太枠）: 初出用
 \newcommand{\fgb}[1]{%
-    {% 
-    \setlength{\fboxrule}{1.6pt}%
-    \framebox[1.7cm]{#1}%
-    }%
-}
-\newcommand{\fb}[1]{%
-    {% 
-    \setlength{\fboxrule}{0.4pt}%
+    {%
+    \setlength{\fboxrule}{1.6pt}%   外枠を太く（1.6pt）
     \framebox[1.7cm]{#1}%
     }%
 }
 
-% --- 二重線枠 ---
+% 数値・記号穴埋め欄（細枠）: 2回目以降用
+\newcommand{\fb}[1]{%
+    {%
+    \setlength{\fboxrule}{0.4pt}%   外枠を通常の細さ（0.4pt）
+    \framebox[1.7cm]{#1}%
+    }%
+}
+
+% 選択式解答欄（太枠二重）: 初出用
 \newcommand{\dgb}[1]{%
     {%
-    \edef\originalsep{\the\fboxsep}% 現在の標準の余白サイズを記憶
-    \setlength{\fboxrule}{1.6pt}% ① 外側の線を太くする(1.6pt)
-    \setlength{\fboxsep}{1.6pt}%  ② 二重線の「線と線のすき間」の幅
+    \edef\originalsep{\the\fboxsep}%
+    \setlength{\fboxrule}{1.6pt}%   外側の線を太く（1.6pt）
+    \setlength{\fboxsep}{1.6pt}%    二重線の線間隔
     \fbox{%
-        \setlength{\fboxrule}{0.4pt}% ③ 内側の線は普通の太さ(0.8pt)
-        \fbox{\makebox[1.4cm]{#1}}%
-    }%
-    }%
-}
-\newcommand{\db}[1]{%
-    {%
-    \edef\originalsep{\the\fboxsep}% 現在の標準の余白サイズを記憶
-    \setlength{\fboxrule}{0.4pt}% ① 外側の線を太くする(1.6pt)
-    \setlength{\fboxsep}{1.6pt}%  ② 二重線の「線と線のすき間」の幅
-    \fbox{%
-        \setlength{\fboxrule}{0.4pt}% ③ 内側の線は普通の太さ(0.8pt)
+        \setlength{\fboxrule}{0.4pt}% 内側の線は通常の細さ（0.4pt）
         \fbox{\makebox[1.4cm]{#1}}%
     }%
     }%
 }
 
+% 選択式解答欄（細枠二重）: 2回目以降用
+\newcommand{\db}[1]{%
+    {%
+    \edef\originalsep{\the\fboxsep}%
+    \setlength{\fboxrule}{0.4pt}%   外側の線を細く（0.4pt）
+    \setlength{\fboxsep}{1.6pt}%    二重線の線間隔
+    \fbox{%
+        \setlength{\fboxrule}{0.4pt}%
+        \fbox{\makebox[1.4cm]{#1}}%
+    }%
+    }%
+}
+
+% \subject{科目名}{開始解答番号}{終了解答番号}
 \newcommand{\subject}[3]{%
 \begin{center}
     {\LARGE \textbf{#1}}\\[0.5em]

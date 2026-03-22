@@ -1,4 +1,26 @@
 # 最新年度をignore
 main_2027/
+*.aux
+*.log
+*.out
+*.dvi
+*.synctex.gz
+*.bbl
+*.blg
+*.idx
+*.ilg
+*.ind
+*.lof
+*.lot
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.bbl-SAVE-ERROR
+*.bcf
+*.run.xml
+*.synctex.gz(busy)
+*.synctex(busy)
 
 KT1A+1/
