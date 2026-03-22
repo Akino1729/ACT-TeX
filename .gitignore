@@ -1,5 +1,7 @@
-# 最新年度をignore
+# 最新年度を無視
 main_2027/
+
+# TeX関連ファイルを無視
 *.aux
 *.log
 *.out
@@ -22,5 +24,7 @@ main_2027/
 *.run.xml
 *.synctex.gz(busy)
 *.synctex(busy)
+*.k1
 
+# 参考元を無視
 KT1A+1/
