@@ -83,7 +83,7 @@
 \newcommand{\fgb}[1]{%
     {%
     \setlength{\fboxrule}{1.6pt}%   外枠を太く（1.6pt）
-    \framebox[1.7cm]{#1}%
+    \framebox[2.0cm]{\textbf{\textgt{#1}}}%
     }%
 }
 
@@ -91,7 +91,7 @@
 \newcommand{\fb}[1]{%
     {%
     \setlength{\fboxrule}{0.4pt}%   外枠を通常の細さ（0.4pt）
-    \framebox[1.7cm]{#1}%
+    \framebox[2.0cm]{\textgt{#1}}%
     }%
 }
 
@@ -103,7 +103,7 @@
     \setlength{\fboxsep}{1.6pt}%    二重線の線間隔
     \fbox{%
         \setlength{\fboxrule}{0.4pt}% 内側の線は通常の細さ（0.4pt）
-        \fbox{\makebox[1.4cm]{#1}}%
+        \fbox{\makebox[1.5cm]{\textbf{\textgt{#1}}}}%
     }%
     }%
 }
@@ -116,9 +116,10 @@
     \setlength{\fboxsep}{1.6pt}%    二重線の線間隔
     \fbox{%
         \setlength{\fboxrule}{0.4pt}%
-        \fbox{\makebox[1.4cm]{#1}}%
+        \fbox{\makebox[1.5cm]{\textgt{#1}}%
     }%
     }%
+}
 }
 
 % \subject{科目名}{開始解答番号}{終了解答番号}
