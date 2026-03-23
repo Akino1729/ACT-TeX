@@ -5,14 +5,9 @@
 \begin{document}
 \abovedisplayskip=7.0pt plus 2.0pt minus 5.0pt
 \belowdisplayskip=7.0pt plus 2.0pt minus 5.0pt
-\openKaiFile
 
 % ========== 冊子全体表紙 ==========
 \ReadTeXFile{./ACTXXXX_instruction.tex}
-% % ページ番号隠し
-% \thispagestyle{empty}
-% \clearpage
-% \addtocounter{page}{-1}
 
 % ========== 科目：Arcaea ==========
 \newpage
@@ -42,18 +37,8 @@
     \item \ReadTeXFile{./question/science/XXXX301.tex}
     \newpage
     \item \ReadTeXFile{./question/science/XXXX302.tex}
+    \newpage
+    \item \ReadTeXFile{./question/science/XXXX303.tex}
 \end{QuestionEnum} % ← ここを変更
-
-\closeKaiFile
-
-% ========== 解答・解説セクション ==========
-% \newpage
-% \section*{正答・配点}
-% \enlargethispage{2\baselineskip}
-% \includegraphics*[scale=.45]{fig/KT1Aans.pdf}
-
-\newpage
-% \section*{略解}
-% \inputKaiFile
 
 \end{document}
